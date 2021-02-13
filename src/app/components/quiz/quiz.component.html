@@ -1,0 +1,11 @@
+<div class="card-header bg-transparent border-info text-center"><strong>Question {{id + 1}}</strong></div>
+<div class="card-body ">
+  <h5 class="card-title text-center text-dark">{{(id < allQuestions.length)? allQuestions[this.id]["question"] : ""
+      }}</h5>
+
+      <div class="text-center">
+        <button class="btn btn-success" (click)="setTrue()">TRUE</button>
+        <button class="btn btn-danger" (click)="setFalse()">FALSE</button>
+      </div>
+
+</div>

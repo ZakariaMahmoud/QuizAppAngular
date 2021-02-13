@@ -5,16 +5,9 @@
   <div class="mt-5 card bg-light">
 
     <div class="card-body">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Enter your name</label>
-        <input type="text" class="form-control" placeholder="Enter name" #name>
-        <div class="text-center mt-4">
-          <button class="btn btn-dark" (click)="setname(name.value)">
-            Start
-          </button>
-        </div>
-
-      </div>
+      <router-outlet></router-outlet>
     </div>
 
   </div>
+
+</div>

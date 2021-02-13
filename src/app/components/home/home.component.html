@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="exampleInputEmail1">Enter your name</label>
+  <input type="text" class="form-control" id="name" placeholder="Enter name" #name>
+  <div class="text-center mt-4">
+    <button class="btn btn-dark" (click)="pushName(name.value)">
+      Start
+    </button>
+  </div>
+
+</div>
