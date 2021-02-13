@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResultComponent } from './components/quiz/result/result.component';
+import { TrueOrFalseComponent } from './components/quiz/true-or-false/true-or-false.component';
+
 
 
 
@@ -16,7 +18,9 @@ import { ResultComponent } from './components/quiz/result/result.component';
     NavbarComponent,
     QuizComponent,
     HomeComponent,
-    ResultComponent
+    ResultComponent,
+    TrueOrFalseComponent,
+
   ],
   imports: [
     BrowserModule,

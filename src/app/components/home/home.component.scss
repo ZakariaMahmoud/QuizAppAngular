@@ -1,0 +1,10 @@
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    .box {
+      background-color: #eceef0;
+    }
+  }
+}

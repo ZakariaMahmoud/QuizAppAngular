@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header text-center">1 / 10</div>
+  <div class="card-body text-center">
+
+    <h1>هل تحب قضاء المزيد من الوقت بمفردك؟</h1>
+
+    <div class="row">
+      <div class="col">
+        <div (click)="active = 1" [ngClass]="{'bg-false' : active==1}">
+          <img class="img-fluid mb-3" src="assets/img/false.png">
+          <h2 class="false-color">خطأ</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div (click)="active = 2" [ngClass]="{'bg-true' : active==2}">
+          <img class="img-fluid mb-3" src="assets/img/true.png">
+          <h2 class="true-color">صواب</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

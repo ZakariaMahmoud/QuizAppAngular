@@ -1,0 +1,37 @@
+h1 {
+  font-size: x-larger;
+}
+
+.card {
+  background-color: transparent;
+}
+
+.true-color {
+  color: #2A662C;
+}
+
+.false-color {
+  color: #A62721;
+}
+
+.bg-false {
+  background-color: #ffd7d5;
+}
+
+.bg-true {
+  background-color: #dcffdd;
+}
+
+
+.col {
+
+  div {
+    padding: 10px;
+
+    &:hover {
+      border: 2px solid #1BA2B8;
+      cursor: pointer;
+    }
+
+  }
+}
