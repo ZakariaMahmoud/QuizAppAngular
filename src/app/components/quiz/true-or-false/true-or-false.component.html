@@ -1,20 +1,20 @@
 <div class="card">
-  <div class="card-header text-center">1 / 10</div>
+  <div class="card-header text-center">{{ i+1 + " / "+ questions.length }}</div>
   <div class="card-body text-center">
 
-    <h1>هل تحب قضاء المزيد من الوقت بمفردك؟</h1>
+    <h1>{{questions[i]}}</h1>
 
     <div class="row">
       <div class="col">
-        <div (click)="active = 1" [ngClass]="{'bg-false' : active==1}">
+        <div (click)="setFalse()" [ngClass]="{'bg-false' : active==1}">
           <img class="img-fluid mb-3" src="assets/img/false.png">
-          <h2 class="false-color">خطأ</h2>
+          <h2 class="false-color">لا</h2>
         </div>
       </div>
       <div class="col">
-        <div (click)="active = 2" [ngClass]="{'bg-true' : active==2}">
+        <div (click)="setTrue()" [ngClass]="{'bg-true' : active==2}">
           <img class="img-fluid mb-3" src="assets/img/true.png">
-          <h2 class="true-color">صواب</h2>
+          <h2 class="true-color">نعم</h2>
         </div>
       </div>
     </div>
