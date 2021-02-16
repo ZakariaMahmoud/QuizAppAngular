@@ -1,11 +1,11 @@
-<div class="card-header bg-transparent border-info text-center"><strong>Question {{id + 1}}</strong></div>
-<div class="card-body ">
-  <h5 class="card-title text-center text-dark">{{(id < allQuestions.length)? allQuestions[this.id]["question"] : ""
-      }}</h5>
+<div class=" text-center">
+  <h1> {{nameOfQuiz}}</h1>
+  <div class="form-group" class="text-right" dir="rtl">
+    <label for="name">أدخل إسمك الكامل :</label>
+    <input type="text" class="form-control" id="name" placeholder="الإسم الكامل" #name>
 
-      <div class="text-center">
-        <button class="btn btn-success" (click)="setTrue()">TRUE</button>
-        <button class="btn btn-danger" (click)="setFalse()">FALSE</button>
-      </div>
-
+  </div>
+  <button class="btn btn-info" (click)="setNameUser(name.value)">
+    👉 إبدأ 👈
+  </button>
 </div>

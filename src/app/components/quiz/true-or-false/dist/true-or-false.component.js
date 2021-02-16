@@ -9,19 +9,23 @@ exports.__esModule = true;
 exports.TrueOrFalseComponent = void 0;
 var core_1 = require("@angular/core");
 var TrueOrFalseComponent = /** @class */ (function () {
-    function TrueOrFalseComponent(db) {
-        var _this = this;
+    function TrueOrFalseComponent(shared, itemService, router) {
+        this.shared = shared;
+        this.itemService = itemService;
+        this.router = router;
         this.active = 0;
         this.questions = [];
         this.responses = [];
         this.i = 0;
-        db.list('/quiz/TrueOrFalse/questions')
-            .valueChanges()
-            .subscribe(function (questions) {
-            _this.questions = questions;
-        });
     }
     TrueOrFalseComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.shared.user.name) {
+            this.itemService.items.subscribe(function (data) { return _this.questions = data[0].true_or_false; });
+        }
+        else {
+            this.router.navigate(['quiz/true-or-false']);
+        }
     };
     TrueOrFalseComponent.prototype.setTrue = function () {
         var _this = this;
@@ -32,7 +36,7 @@ var TrueOrFalseComponent = /** @class */ (function () {
             this.i++;
         }
         if (this.i >= this.questions.length) {
-            this.calculateResults();
+            this.push();
         }
     };
     TrueOrFalseComponent.prototype.setFalse = function () {
@@ -44,11 +48,10 @@ var TrueOrFalseComponent = /** @class */ (function () {
             this.i++;
         }
         if (this.i >= this.questions.length) {
-            this.calculateResults();
+            this.push();
         }
     };
-    TrueOrFalseComponent.prototype.calculateResults = function () {
-        console.log(this.responses);
+    TrueOrFalseComponent.prototype.push = function () {
     };
     TrueOrFalseComponent = __decorate([
         core_1.Component({

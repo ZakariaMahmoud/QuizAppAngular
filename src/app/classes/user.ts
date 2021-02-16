@@ -1,24 +1,24 @@
+import { AngularFireDatabase } from "@angular/fire/database";
+
 export class User {
 
-  private _name: string = "";
-  private _result :number = 0;
 
-  constructor() {}
+  constructor( ) { }
 
-  public set name(name: string) {
-    this._name=name;
+
+  public set name(name: any) {
+    sessionStorage.setItem('name', name);
+
   }
 
-  public get name(): string {
-    return this._name;
+  public get name(): any {
+
+    return sessionStorage.getItem('name');
   }
 
-  public get result(): number {
-    return this._result;
-  }
+  public setResponses(quiz_name: string, responses: boolean[],) {
 
-  public set result(r: number) {
-    this._result = r;
+   
 
   }
 

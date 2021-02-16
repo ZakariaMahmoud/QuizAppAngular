@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/shared.service';
-import {Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery'
+
 
 @Component({
   selector: 'app-quiz',
@@ -8,59 +10,39 @@ import {Router} from '@angular/router';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-  name: string = this.shared.user.name;
-  id: number = 0;
-  result: number = 0;
+  quiz_name: any;
+  nameOfQuiz: string = "";
 
-  allQuestions = [
-    { "question": "npm uses the package.json to manage what dependencies our application has ?", "answer": true, "selected" : false },
-    { "question": "True Or False", "answer": true, "selected": false},
-    { "question": "True Or False", "answer": true, "selected": false},
-    { "question": "True Or False", "answer": true, "selected": false},
-    { "question": "True Or False", "answer": true, "selected": false},
-    { "question": "True Or False", "answer" : true, "selected" :false},
 
-  ];
+  constructor(private shared: SharedService, private router: Router, private _Activatedroute: ActivatedRoute) {
 
-  constructor(private shared: SharedService,private router: Router ) { }
+    this.quiz_name = this._Activatedroute.snapshot.paramMap.get("quiz_name");
+    this.setNameOfQuiz(this.quiz_name);
+   }
   ngOnInit(): void {
 
 
   }
 
-  setTrue() {
-    if(this.id<this.allQuestions.length) {
-      this.allQuestions[this.id]["selected"] = true;
-        this.id++;
+  setNameUser(name: string) {
+    if (name) {
+      this.shared.user.name = name;
+      $('#name').attr('style', '');
+      this.router.navigate([this.quiz_name]);
+    } else {
+      $('#name').attr('style', 'border:2px solid red;');
     }
 
-    if(this.id >= this.allQuestions.length){
-      this.calculateResults();
-    }
   }
-  setFalse() {
-    if(this.id<this.allQuestions.length) {
-        this.allQuestions[this.id]["selected"] = false;
-        this.id++;
-    }
-    if(this.id >= this.allQuestions.length){
-      this.calculateResults();
-    }
-  }
+  setNameOfQuiz(quiz_name: any) {
+    switch (quiz_name) {
+      case "true-or-false": {
+        this.nameOfQuiz = "صواب أم خطأ";
 
-  calculateResults() {
+        break;
 
-      for (let i = 0; i < this.allQuestions.length; i++){
-
-        if (this.allQuestions[i]["answer"] == this.allQuestions[i]["selected"]) {
-          ++this.result;
-        }
       }
-    this.shared.user.result=this.result;
-    this.router.navigate(['/result']);
-
-
-
+    }
   }
 
 }
