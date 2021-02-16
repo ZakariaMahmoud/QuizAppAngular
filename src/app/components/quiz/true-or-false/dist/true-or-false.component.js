@@ -9,23 +9,25 @@ exports.__esModule = true;
 exports.TrueOrFalseComponent = void 0;
 var core_1 = require("@angular/core");
 var TrueOrFalseComponent = /** @class */ (function () {
-    function TrueOrFalseComponent(shared, itemService, router) {
+    function TrueOrFalseComponent(shared, router, db) {
+        var _this = this;
         this.shared = shared;
-        this.itemService = itemService;
         this.router = router;
+        this.db = db;
         this.active = 0;
         this.questions = [];
         this.responses = [];
         this.i = 0;
-    }
-    TrueOrFalseComponent.prototype.ngOnInit = function () {
-        var _this = this;
         if (this.shared.user.name) {
-            this.itemService.items.subscribe(function (data) { return _this.questions = data[0].true_or_false; });
+            db.list('questions/QuestionsForUser').valueChanges().subscribe(function (questions) {
+                _this.questions = questions[0];
+            });
         }
         else {
             this.router.navigate(['quiz/true-or-false']);
         }
+    }
+    TrueOrFalseComponent.prototype.ngOnInit = function () {
     };
     TrueOrFalseComponent.prototype.setTrue = function () {
         var _this = this;

@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,17 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.ItemService = void 0;
 var core_1 = require("@angular/core");
-var operators_1 = require("rxjs/operators");
 var ItemService = /** @class */ (function () {
     function ItemService(db) {
         this.db = db;
-        this.items = this.db.collection('Database')
-            .snapshotChanges().pipe(operators_1.map(function (actions) { return actions.map(function (a) {
-            var data = a.payload.doc.data();
-            var id = a.payload.doc.id;
-            return __assign({ id: id }, data);
-        }); }));
+        console.log(db.list('questions'));
+        // this.items = this.db.collection<Item>('Database')
+        //        .snapshotChanges().pipe(
+        //          map(actions => actions.map(a => {
+        //            const data = a.payload.doc.data() as Item;
+        //            const id = a.payload.doc.id;
+        //            return { id,...data };
+        //          }))
+        //        );
     }
+    ItemService.prototype.push = function (res) {
+        var uid = (new Date().getTime()).toString(36) + new Date().getUTCMilliseconds();
+        var user = {
+            name: sessionStorage.getItem("name"),
+            quiz: {
+                true_or_false: res
+            }
+        };
+        // this.db.collection('Database').add( user)
+        //       .then((docRef) => {
+        //           console.log("Document written with ID: ", docRef.id);
+        //         })
+        //       .catch((error) => {
+        //           console.error("Error adding document: ", error);
+        //         });
+    };
     ItemService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

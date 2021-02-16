@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/firestore";
-import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 
 import { SharedService } from 'src/app/shared/shared.service';
-import { ItemService } from 'src/app/shared/item.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,25 +15,24 @@ export class TrueOrFalseComponent implements OnInit {
 
 
   active: number = 0;
-  questions: string[] = [];
+  questions: any = [];
   responses: any[] = [];
   i: number = 0;
-  constructor(private shared: SharedService, private itemService: ItemService, private router: Router) {
-
-
-  }
-
-  ngOnInit(): void {
-      if (this.shared.user.name) {
-
-
-        this.itemService.items.subscribe(data => this.questions =data[0].true_or_false);
-
-
+  constructor(private shared: SharedService,private router: Router,public db: AngularFireDatabase) {
+    if (this.shared.user.name) {
+      db.list('questions/QuestionsForUser').valueChanges().subscribe(questions => {
+        this.questions = questions[0];
+      })
 
     } else {
       this.router.navigate(['quiz/true-or-false']);
       }
+  }
+
+  ngOnInit(): void {
+
+
+
   }
 
 
@@ -70,6 +67,8 @@ export class TrueOrFalseComponent implements OnInit {
   }
 
   push() {
+
+
 
 
 

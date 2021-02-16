@@ -15,11 +15,6 @@ var User = /** @class */ (function () {
         configurable: true
     });
     User.prototype.setResponses = function (quiz_name, responses) {
-        this.db.list('/quiz/TrueOrFalse/questions')
-            .valueChanges()
-            .subscribe(function (questions) {
-            console.log(questions);
-        });
     };
     return User;
 }());

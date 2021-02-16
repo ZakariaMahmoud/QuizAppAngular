@@ -2,7 +2,7 @@ import { AngularFireDatabase } from "@angular/fire/database";
 
 export class User {
 
-
+  private _name?: string;
   constructor( ) { }
 
 
@@ -18,7 +18,7 @@ export class User {
 
   public setResponses(quiz_name: string, responses: boolean[],) {
 
-   
+
 
   }
 

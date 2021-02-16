@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { TrueOrFalseComponent } from './components/quiz/true-or-false/true-or-fa
 import { environment } from 'src/environments/environment';
 
 
-import {ItemService} from './shared/item.service';
+import {SharedService} from './shared/shared.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,10 @@ import {ItemService} from './shared/item.service';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase,"QuizApp"),
-    AngularFirestoreModule
+    AngularFireDatabaseModule
 
   ],
-  providers: [ItemService],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
