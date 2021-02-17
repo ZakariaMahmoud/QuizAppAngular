@@ -1,0 +1,9 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover .box {
+  background-color: #eceef0;
+}
+/*# sourceMappingURL=home.component.css.map */

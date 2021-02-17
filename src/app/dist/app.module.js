@@ -34,8 +34,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
-                fire_1.AngularFireModule.initializeApp(environment_1.environment.firebase, "QuizApp"),
-                database_1.AngularFireDatabaseModule
+                fire_1.AngularFireModule.initializeApp(environment_1.environment.firebase, 'QuizApp'),
+                database_1.AngularFireDatabaseModule,
             ],
             providers: [shared_service_1.SharedService],
             bootstrap: [app_component_1.AppComponent]

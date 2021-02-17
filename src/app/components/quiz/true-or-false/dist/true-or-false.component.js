@@ -19,7 +19,9 @@ var TrueOrFalseComponent = /** @class */ (function () {
         this.responses = [];
         this.i = 0;
         if (this.shared.user.name) {
-            db.list('questions/QuestionsForUser').valueChanges().subscribe(function (questions) {
+            db.list('questions/QuestionsForUser')
+                .valueChanges()
+                .subscribe(function (questions) {
                 _this.questions = questions[0];
             });
         }
@@ -27,12 +29,11 @@ var TrueOrFalseComponent = /** @class */ (function () {
             this.router.navigate(['quiz/true-or-false']);
         }
     }
-    TrueOrFalseComponent.prototype.ngOnInit = function () {
-    };
+    TrueOrFalseComponent.prototype.ngOnInit = function () { };
     TrueOrFalseComponent.prototype.setTrue = function () {
         var _this = this;
         this.active = 2;
-        setTimeout(function () { return _this.active = 0; }, 500);
+        setTimeout(function () { return (_this.active = 0); }, 500);
         if (this.i < this.questions.length) {
             this.responses.push(true);
             this.i++;
@@ -44,7 +45,7 @@ var TrueOrFalseComponent = /** @class */ (function () {
     TrueOrFalseComponent.prototype.setFalse = function () {
         var _this = this;
         this.active = 1;
-        setTimeout(function () { return _this.active = 0; }, 500);
+        setTimeout(function () { return (_this.active = 0); }, 500);
         if (this.i < this.questions.length) {
             this.responses.push(false);
             this.i++;
@@ -54,6 +55,42 @@ var TrueOrFalseComponent = /** @class */ (function () {
         }
     };
     TrueOrFalseComponent.prototype.push = function () {
+        var user = {
+            name: this.shared.user.name,
+            quiz: {
+                true_or_false: this.responses
+            }
+        };
+        var unique_id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now())).toString();
+        if (this.getCookie('user_id')) {
+            var unique_id = this.getCookie('user_id');
+            this.db.list('users').update(unique_id, user);
+        }
+        else {
+            this.setCookie('user_id', unique_id, 30);
+            this.db.list('users').update(unique_id, user);
+        }
+    };
+    TrueOrFalseComponent.prototype.setCookie = function (cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+    };
+    TrueOrFalseComponent.prototype.getCookie = function (cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return '';
     };
     TrueOrFalseComponent = __decorate([
         core_1.Component({
