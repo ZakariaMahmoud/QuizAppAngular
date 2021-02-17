@@ -12,6 +12,8 @@ import { TrueOrFalseComponent } from './components/quiz/true-or-false/true-or-fa
 import { environment } from 'src/environments/environment';
 
 import { SharedService } from './shared/shared.service';
+import { ShareComponent } from './components/quiz/true-or-false/share/share.component';
+import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { SharedService } from './shared/shared.service';
     QuizComponent,
     HomeComponent,
     TrueOrFalseComponent,
+    ShareComponent,
+    UserNotFoundComponent,
   ],
   imports: [
     BrowserModule,

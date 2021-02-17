@@ -1,0 +1,59 @@
+<div class=" text-center" *ngIf="state==0">
+  <h1> {{name_of_quiz}}</h1>
+  <h2 dir="rtl"> ما مدى معرفتك بـ {{user_name }}</h2>
+  <div class="form-group" class="text-right" dir="rtl">
+
+    <label for="name">أدخل إسمك الكامل :</label>
+    <input type="text" class="form-control" id="name" placeholder="الإسم الكامل" #name>
+
+  </div>
+  <button class="btn btn-info" (click)="setNameVisitor(name.value)">
+    👉 إبدأ 👈
+  </button>
+
+
+  <table class="mt-5  table table-striped" dir="rtl">
+    <thead>
+      <tr>
+        <th scope="col">الترتيب</th>
+        <th scope="col">الإسم</th>
+        <th scope="col">النتيجة</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of score_list; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{element.name}}</td>
+        <td>{{element.score}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="card" *ngIf="state==1">
+  <div class="card-header text-center">{{ i+1 + " / "+ questions.length }}</div>
+  <div class="card-body text-center">
+
+    <h1 dir="rtl">{{questions[i]}}</h1>
+
+    <div class="row">
+      <div class="col">
+        <div (click)="setFalse()" [ngClass]="{'bg-false' : active==1}">
+          <img class="img-fluid mb-3" src="assets/img/false.png">
+          <h2 class="text-dark">لا</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div (click)="setTrue()" [ngClass]="{'bg-true' : active==2}">
+          <img class="img-fluid mb-3" src="assets/img/true.png">
+          <h2 class="text-dark">نعم</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
