@@ -1,28 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/shared.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as $ from 'jquery'
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss']
+  styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
   quiz_name: any;
-  nameOfQuiz: string = "";
+  name_of_quiz: string = '';
 
-
-  constructor(private shared: SharedService, private router: Router, private _Activatedroute: ActivatedRoute) {
-
-    this.quiz_name = this._Activatedroute.snapshot.paramMap.get("quiz_name");
+  constructor(
+    private shared: SharedService,
+    private router: Router,
+    private _Activatedroute: ActivatedRoute
+  ) {
+    console.log(this.getCookie(this.quiz_name + '/user_id'));
+    this.quiz_name = this._Activatedroute.snapshot.paramMap.get('quiz_name');
+    if (this.getCookie(this.quiz_name + '/user_id')) {
+      this.router.navigate([
+        this.quiz_name +
+          '/share/' +
+          this.getCookie(this.quiz_name + '/user_id'),
+      ]);
+    }
     this.setNameOfQuiz(this.quiz_name);
-   }
-  ngOnInit(): void {
-
-
   }
+  ngOnInit(): void {}
 
   setNameUser(name: string) {
     if (name) {
@@ -32,17 +38,30 @@ export class QuizComponent implements OnInit {
     } else {
       $('#name').attr('style', 'border:2px solid red;');
     }
-
   }
   setNameOfQuiz(quiz_name: any) {
     switch (quiz_name) {
-      case "true-or-false": {
-        this.nameOfQuiz = "صواب أم خطأ";
+      case 'true-or-false': {
+        this.name_of_quiz = 'صواب أم خطأ';
 
         break;
-
       }
     }
   }
 
+  getCookie(cname) {
+    var name = cname + '=';
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
 }

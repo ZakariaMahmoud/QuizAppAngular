@@ -14,12 +14,19 @@ var QuizComponent = /** @class */ (function () {
         this.shared = shared;
         this.router = router;
         this._Activatedroute = _Activatedroute;
-        this.nameOfQuiz = "";
-        this.quiz_name = this._Activatedroute.snapshot.paramMap.get("quiz_name");
+        this.name_of_quiz = '';
+        console.log(this.getCookie(this.quiz_name + '/user_id'));
+        this.quiz_name = this._Activatedroute.snapshot.paramMap.get('quiz_name');
+        if (this.getCookie(this.quiz_name + '/user_id')) {
+            this.router.navigate([
+                this.quiz_name +
+                    '/share/' +
+                    this.getCookie(this.quiz_name + '/user_id'),
+            ]);
+        }
         this.setNameOfQuiz(this.quiz_name);
     }
-    QuizComponent.prototype.ngOnInit = function () {
-    };
+    QuizComponent.prototype.ngOnInit = function () { };
     QuizComponent.prototype.setNameUser = function (name) {
         if (name) {
             this.shared.user.name = name;
@@ -32,11 +39,26 @@ var QuizComponent = /** @class */ (function () {
     };
     QuizComponent.prototype.setNameOfQuiz = function (quiz_name) {
         switch (quiz_name) {
-            case "true-or-false": {
-                this.nameOfQuiz = "صواب أم خطأ";
+            case 'true-or-false': {
+                this.name_of_quiz = 'صواب أم خطأ';
                 break;
             }
         }
+    };
+    QuizComponent.prototype.getCookie = function (cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return '';
     };
     QuizComponent = __decorate([
         core_1.Component({

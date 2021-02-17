@@ -18,6 +18,11 @@ var TrueOrFalseComponent = /** @class */ (function () {
         this.questions = [];
         this.responses = [];
         this.i = 0;
+        if (this.getCookie('true-or-false/user_id')) {
+            this.router.navigate([
+                'true-or-false/share/' + this.getCookie('true-or-false/user_id'),
+            ]);
+        }
         if (this.shared.user.name) {
             db.list('questions/QuestionsForUser')
                 .valueChanges()
@@ -63,12 +68,14 @@ var TrueOrFalseComponent = /** @class */ (function () {
         };
         var unique_id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now())).toString();
         if (this.getCookie('user_id')) {
-            var unique_id = this.getCookie('user_id');
+            var unique_id = this.getCookie('true-or-false/user_id');
             this.db.list('users').update(unique_id, user);
+            this.router.navigate(['true-or-false/share/' + unique_id]);
         }
         else {
-            this.setCookie('user_id', unique_id, 30);
+            this.setCookie('true-or-false/user_id', unique_id, 30);
             this.db.list('users').update(unique_id, user);
+            this.router.navigate(['true-or-false/share/' + unique_id]);
         }
     };
     TrueOrFalseComponent.prototype.setCookie = function (cname, cvalue, exdays) {

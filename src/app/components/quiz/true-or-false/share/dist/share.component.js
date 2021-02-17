@@ -33,7 +33,16 @@ var ShareComponent = /** @class */ (function () {
                     router.navigate(['user-not-found']);
                 }
                 else {
-                    _this.state = 0;
+                    if (_this.getCookie('true-or-false/' + _this.user_id)) {
+                        _this.score = parseInt(_this.getCookie('true-or-false/' + _this.user_id));
+                        _this.state = 2;
+                    }
+                    else if (_this.getCookie('true-or-false/user_id') == _this.user_id) {
+                        _this.state = 3;
+                    }
+                    else {
+                        _this.state = 0;
+                    }
                     _this.user = user;
                     _this.user_name = user[0];
                     _this.user_responses.push(user[1]);
@@ -55,12 +64,19 @@ var ShareComponent = /** @class */ (function () {
             });
         }
     }
-    ShareComponent.prototype.ngOnInit = function () { };
+    ShareComponent.prototype.ngOnInit = function () {
+        this.href = window.location.href;
+    };
     ShareComponent.prototype.setNameVisitor = function (name) {
         if (name) {
             this.visitor_name = name;
             $('#name').attr('style', '');
-            ++this.state;
+            if (this.getCookie('true-or-false/' + this.user_id)) {
+                this.state = 2;
+            }
+            else {
+                this.state = 1;
+            }
         }
         else {
             $('#name').attr('style', 'border:2px solid red;');
@@ -117,8 +133,30 @@ var ShareComponent = /** @class */ (function () {
             .list('users/' + this.user_id + '/visitors/true_or_false')
             .set(visitor_id, visitor)
             .then(function () {
-            console.log('Good');
+            _this.setCookie('true-or-false/' + _this.user_id, _this.score, 30);
+            _this.state = 2;
         });
+    };
+    ShareComponent.prototype.setCookie = function (cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+    };
+    ShareComponent.prototype.getCookie = function (cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return '';
     };
     ShareComponent = __decorate([
         core_1.Component({

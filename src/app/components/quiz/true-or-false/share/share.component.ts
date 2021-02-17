@@ -15,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ShareComponent implements OnInit {
   state: number = -1;
+  href: string;
   name_of_quiz: string = 'صواب أم خطأ';
 
   user_id: string = this._Activatedroute.snapshot.paramMap.get('user_id');
@@ -45,7 +46,19 @@ export class ShareComponent implements OnInit {
           if (Object.keys(user).length === 0) {
             router.navigate(['user-not-found']);
           } else {
-            this.state = 0;
+            if (this.getCookie('true-or-false/' + this.user_id)) {
+              this.score = parseInt(
+                this.getCookie('true-or-false/' + this.user_id)
+              );
+              this.state = 2;
+            } else if (
+              this.getCookie('true-or-false/user_id') == this.user_id
+            ) {
+              this.state = 3;
+            } else {
+              this.state = 0;
+            }
+
             this.user = user;
             this.user_name = user[0];
             this.user_responses.push(user[1]);
@@ -72,13 +85,19 @@ export class ShareComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.href = window.location.href;
+  }
 
   setNameVisitor(name: string) {
     if (name) {
       this.visitor_name = name;
       $('#name').attr('style', '');
-      ++this.state;
+      if (this.getCookie('true-or-false/' + this.user_id)) {
+        this.state = 2;
+      } else {
+        this.state = 1;
+      }
     } else {
       $('#name').attr('style', 'border:2px solid red;');
     }
@@ -145,7 +164,30 @@ export class ShareComponent implements OnInit {
       .list('users/' + this.user_id + '/visitors/true_or_false')
       .set(visitor_id, visitor)
       .then(() => {
-        console.log('Good');
+        this.setCookie('true-or-false/' + this.user_id, this.score, 30);
+        this.state = 2;
       });
+  }
+
+  setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    var expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+  }
+  getCookie(cname) {
+    var name = cname + '=';
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
   }
 }

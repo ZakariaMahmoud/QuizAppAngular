@@ -57,3 +57,68 @@
 
   </div>
 </div>
+
+
+<div class=" text-center" *ngIf="state==2">
+  <h1> {{name_of_quiz}}</h1>
+  <h2> النتيجة : {{ questions.length + ' / ' + score }}</h2>
+
+  <h3 class="mb-1 mt-4"> أكثر من يعرف {{user_name}}</h3>
+
+
+
+  <table class="mt-5  table table-striped" dir="rtl">
+    <thead>
+      <tr>
+        <th scope="col">الترتيب</th>
+        <th scope="col">الإسم</th>
+        <th scope="col">النتيجة</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of score_list; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{element.name}}</td>
+        <td>{{element.score}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+<div class=" text-center" *ngIf="state==3">
+  <h1> {{name_of_quiz}}</h1>
+  <h2>التحدي الخاص بك جاهزاً</h2>
+  <h3>شارك هذا الرابط مع أصدقائك</h3>
+
+
+
+  <input type="text" class="form-control" [value]="href">
+  <h3 class="mb-1 mt-4" dir="rtl"> أكثر من يعرف {{user_name}}</h3>
+
+
+
+  <table class="mt-5  table table-striped" dir="rtl">
+    <thead>
+      <tr>
+        <th scope="col">الترتيب</th>
+        <th scope="col">الإسم</th>
+        <th scope="col">النتيجة</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of score_list; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{element.name}}</td>
+        <td>{{element.score}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
