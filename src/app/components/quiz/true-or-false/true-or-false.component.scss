@@ -43,13 +43,6 @@
       border-top: 1px solid #461A42;
     }
 
-    label {
-      color: #461A42;
-    }
-
-    input {
-      border: 1px solid #461A42;
-    }
   }
 
 
@@ -69,7 +62,7 @@
     margin: 4px 2px;
     transform: translateY(+8px);
 
-    @media only screen and (min-width: 600px) {
+    @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: #81064f;
       }

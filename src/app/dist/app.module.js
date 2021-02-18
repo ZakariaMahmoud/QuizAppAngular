@@ -19,6 +19,8 @@ var home_component_1 = require("./components/home/home.component");
 var true_or_false_component_1 = require("./components/quiz/true-or-false/true-or-false.component");
 var environment_1 = require("src/environments/environment");
 var shared_service_1 = require("./shared/shared.service");
+var share_component_1 = require("./components/quiz/true-or-false/share/share.component");
+var user_not_found_component_1 = require("./components/user-not-found/user-not-found.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,6 +32,8 @@ var AppModule = /** @class */ (function () {
                 quiz_component_1.QuizComponent,
                 home_component_1.HomeComponent,
                 true_or_false_component_1.TrueOrFalseComponent,
+                share_component_1.ShareComponent,
+                user_not_found_component_1.UserNotFoundComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,

@@ -1,49 +1,262 @@
-button {
-  margin-top: 20px;
-  padding-top: 15px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Mirza:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Sheppards&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+}
+
+
+.box {
+  width: 90%;
+
+  background-color: white;
+  margin: 25px;
+  padding: 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+
+  .child {
+    transform: translateY(-50px);
+
+    img {
+      width: 100px;
+
+
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 5px;
+      color: #461A42;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 5px;
+      color: #461A42;
+    }
+
+    hr {
+      border-top: 1px solid #461A42;
+    }
+
+    label {
+      color: #461A42;
+    }
+
+    textarea {
+      border: 1px solid #461A42;
+      font-size: larger;
+      padding-top: 10px;
+
+    }
+
+    input {
+      border: 1px solid #461A42;
+    }
+  }
+
+  .button-1 {
+    background-color: #461A42;
+    border: 5px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 25px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: #81064f;
+      }
+
+    }
+
+
+  }
+
+  .bgbutton {
+    background-color: #a25583 !important;
+
+  }
 
 }
 
 
-h1 {
-  font-size: x-larger;
-}
+.box-2 {
+  width: 90%;
+  height: 266px;
+  background-color: white;
+  margin: 25px;
+  padding: 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
 
-.card {
-  background-color: transparent;
-}
+  .child {
+    transform: translateY(-50px);
 
-.true-color {
-  color: #2A662C;
+    img {
+      width: 100px;
 
-}
+    }
 
-.false-color {
-  color: #A62721;
-}
+    .score {
+      font-family: 'Mrs Sheppards';
+      font-size: 36px;
+    }
 
-.bg-false {
-  background-color: #ffd7d5;
-}
+    h1 {
+      font-size: 28px;
+      margin-top: 10px;
+      color: #461A42;
+      height: 66px;
+    }
 
-.bg-true {
-  background-color: #dcffdd;
-
-}
-
-
-.col {
-
-  div {
-    padding: 10px;
-
-    &:hover {
-      border: 2px solid #1BA2B8;
-      cursor: pointer;
+    hr {
+      border-top: 1px solid #461A42;
     }
 
   }
+
+
+
+  .button {
+    background-color: #461A42;
+    border: 5px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 26px;
+    width: 95px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    transform: translateY(+8px);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: #81064f;
+      }
+
+    }
+  }
+
+  .bgbutton {
+    background-color: #81064f !important;
+
+  }
+}
+
+
+/* container */
+
+#share {
+  width: 100%;
+
+  text-align: center;
+}
+
+/* buttons */
+
+#share a {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 8px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.15s linear;
+}
+
+#share a:hover {
+  opacity: 1;
+}
+
+/* icons */
+
+#share i {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* colors */
+.whatsapp {
+  background: #007a1c;
+}
+
+.facebook {
+  background: #3b5998;
+}
+
+.twitter {
+  background: #55acee;
+}
+
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-chart {
+  justify-content: space-around;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+
+
+.circular-chart.violet .circle {
+  stroke: #81064f;
+
+}
+
+.percentage {
+  fill: black;
+  font-family: 'Mrs Sheppards';
+  font-weight: bod;
+  font-size: 0.5em;
+  text-anchor: middle;
 }

@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Mirza:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mrs+Sheppards&display=swap");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+}
+
+.box {
+  width: 90%;
+  background-color: white;
+  margin: 25px;
+  padding: 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+}
+.box .child {
+  transform: translateY(-50px);
+}
+.box .child img {
+  width: 100px;
+}
+.box .child h1 {
+  font-size: 24px;
+  margin-top: 5px;
+  color: #461A42;
+}
+.box .child h2 {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #461A42;
+}
+.box .child hr {
+  border-top: 1px solid #461A42;
+}
+.box .child label {
+  color: #461A42;
+}
+.box .child textarea {
+  border: 1px solid #461A42;
+  font-size: larger;
+  padding-top: 10px;
+}
+.box .child input {
+  border: 1px solid #461A42;
+}
+.box .button-1 {
+  background-color: #461A42;
+  border: 5px solid white;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .box .button-1:hover {
+    background-color: #81064f;
+  }
+}
+.box .bgbutton {
+  background-color: #a25583 !important;
+}
+
+.box-2 {
+  width: 90%;
+  height: 266px;
+  background-color: white;
+  margin: 25px;
+  padding: 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+}
+.box-2 .child {
+  transform: translateY(-50px);
+}
+.box-2 .child img {
+  width: 100px;
+}
+.box-2 .child .score {
+  font-family: "Mrs Sheppards";
+  font-size: 36px;
+}
+.box-2 .child h1 {
+  font-size: 28px;
+  margin-top: 10px;
+  color: #461A42;
+  height: 66px;
+}
+.box-2 .child hr {
+  border-top: 1px solid #461A42;
+}
+.box-2 .button {
+  background-color: #461A42;
+  border: 5px solid white;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 26px;
+  width: 95px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  transform: translateY(8px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .box-2 .button:hover {
+    background-color: #81064f;
+  }
+}
+.box-2 .bgbutton {
+  background-color: #81064f !important;
+}
+
+/* container */
+#share {
+  width: 100%;
+  text-align: center;
+}
+
+/* buttons */
+#share a {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 8px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.15s linear;
+}
+
+#share a:hover {
+  opacity: 1;
+}
+
+/* icons */
+#share i {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* colors */
+.whatsapp {
+  background: #007a1c;
+}
+
+.facebook {
+  background: #3b5998;
+}
+
+.twitter {
+  background: #55acee;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-chart {
+  justify-content: space-around;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+.circular-chart.violet .circle {
+  stroke: #81064f;
+}
+
+.percentage {
+  fill: black;
+  font-family: "Mrs Sheppards";
+  font-weight: bod;
+  font-size: 0.5em;
+  text-anchor: middle;
+}

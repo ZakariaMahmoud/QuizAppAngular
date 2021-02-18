@@ -26,12 +26,15 @@ export class ShareComponent implements OnInit {
 
   visitor_name: string;
   score: number = 0;
+  score_percentage: string;
 
   score_list = [];
 
   questions: any = [];
   i: number = 0;
   active: number = 0;
+
+  title: string;
 
   constructor(
     private shared: SharedService,
@@ -50,6 +53,7 @@ export class ShareComponent implements OnInit {
               this.score = parseInt(
                 this.getCookie('true-or-false/' + this.user_id)
               );
+
               this.state = 2;
             } else if (
               this.getCookie('true-or-false/user_id') == this.user_id
@@ -61,8 +65,20 @@ export class ShareComponent implements OnInit {
 
             this.user = user;
             this.user_name = user[0];
-            this.user_responses.push(user[1]);
-            this.user_responses = this.user_responses[0].true_or_false;
+            this.title =
+              '💪 أرسل لك 💪' +
+              this.user_name +
+              '  🤛 تحدي صحيح أم خطأ ' +
+              '🤜 إبدأ التحدي اﻵن   ';
+
+            if (
+              typeof this.user[1] != 'undefined' &&
+              typeof this.user[1].true_or_false != 'undefined'
+            ) {
+              this.user_responses = [];
+              this.user_responses.push(user[1]);
+              this.user_responses = this.user_responses[0].true_or_false;
+            }
             if (
               typeof this.user[2] != 'undefined' &&
               typeof this.user[2].true_or_false != 'undefined'
@@ -70,6 +86,13 @@ export class ShareComponent implements OnInit {
               this.score_list = this.user[2].true_or_false;
 
               this.score_list.sort((a, b) => (a.score <= b.score ? 1 : -1));
+              if (this.score === 0) {
+                this.score_percentage = '0';
+              } else {
+                this.score_percentage = (
+                  (this.score / this.user[1].true_or_false.length || 10) * 100
+                ).toFixed(1);
+              }
             }
           }
         });
@@ -88,7 +111,14 @@ export class ShareComponent implements OnInit {
   ngOnInit(): void {
     this.href = window.location.href;
   }
+  copy() {
+    var link = document.getElementById('link') as HTMLInputElement;
+    link.select();
+    document.execCommand('copy');
 
+    this.active = 1;
+    setTimeout(() => (this.active = 0), 1000);
+  }
   setNameVisitor(name: string) {
     if (name) {
       this.visitor_name = name;

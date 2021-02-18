@@ -36,12 +36,6 @@
 .box .child hr {
   border-top: 1px solid #461A42;
 }
-.box .child label {
-  color: #461A42;
-}
-.box .child input {
-  border: 1px solid #461A42;
-}
 .box .button {
   background-color: #461A42;
   border: 5px solid white;
@@ -56,7 +50,7 @@
   margin: 4px 2px;
   transform: translateY(8px);
 }
-@media only screen and (min-width: 600px) {
+@media (hover: hover) and (pointer: fine) {
   .box .button:hover {
     background-color: #81064f;
   }
