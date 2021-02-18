@@ -1,11 +1,25 @@
-<div class=" text-center">
-  <h1> {{name_of_quiz}}</h1>
-  <div class="form-group" class="text-right" dir="rtl">
-    <label for="name">أدخل إسمك الكامل :</label>
-    <input type="text" class="form-control" id="name" placeholder="الإسم الكامل" #name>
+<div class="w-100">
 
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-6 mx-auto box">
+        <div class="child">
+
+          <img src="assets/img/true-false.png">
+
+          <h1>إختبار صحيح أم خطأ</h1>
+          <hr>
+
+          <div class="form-group" class="text-right" dir="rtl">
+            <label for="name">أدخل إسمك الكامل :</label>
+            <input type="text" class="form-control" id="name" placeholder="الإسم الكامل" #name>
+
+          </div>
+          <button (click)="setNameUser(name.value)">
+            بدأ الإختبار
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-  <button class="btn btn-info" (click)="setNameUser(name.value)">
-    👉 إبدأ 👈
-  </button>
 </div>

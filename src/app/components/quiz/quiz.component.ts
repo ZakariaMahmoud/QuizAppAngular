@@ -17,15 +17,8 @@ export class QuizComponent implements OnInit {
     private router: Router,
     private _Activatedroute: ActivatedRoute
   ) {
-    console.log(this.getCookie(this.quiz_name + '/user_id'));
     this.quiz_name = this._Activatedroute.snapshot.paramMap.get('quiz_name');
-    if (this.getCookie(this.quiz_name + '/user_id')) {
-      this.router.navigate([
-        this.quiz_name +
-          '/share/' +
-          this.getCookie(this.quiz_name + '/user_id'),
-      ]);
-    }
+
     this.setNameOfQuiz(this.quiz_name);
   }
   ngOnInit(): void {}
@@ -42,7 +35,7 @@ export class QuizComponent implements OnInit {
   setNameOfQuiz(quiz_name: any) {
     switch (quiz_name) {
       case 'true-or-false': {
-        this.name_of_quiz = 'صواب أم خطأ';
+        this.name_of_quiz = 'نعم أم لا';
 
         break;
       }

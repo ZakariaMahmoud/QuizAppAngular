@@ -1,11 +1,3 @@
-button {
-  margin-top: 20px;
-  padding-top: 15px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
-}
-
 h1 {
   font-size: x-larger;
 }
@@ -33,7 +25,9 @@ h1 {
 .col div {
   padding: 10px;
 }
+
 .col div:hover {
   border: 2px solid #1BA2B8;
   cursor: pointer;
 }
+/*# sourceMappingURL=true-or-false.component.css.map */

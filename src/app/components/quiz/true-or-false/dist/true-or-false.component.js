@@ -18,11 +18,6 @@ var TrueOrFalseComponent = /** @class */ (function () {
         this.questions = [];
         this.responses = [];
         this.i = 0;
-        if (this.getCookie('true-or-false/user_id')) {
-            this.router.navigate([
-                'true-or-false/share/' + this.getCookie('true-or-false/user_id'),
-            ]);
-        }
         if (this.shared.user.name) {
             db.list('questions/QuestionsForUser')
                 .valueChanges()

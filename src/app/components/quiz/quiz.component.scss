@@ -1,8 +1,71 @@
-button {
-  margin-top: 20px;
-  padding-top: 15px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Mirza:wght@600&display=swap');
+
+.container {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box {
+  width: 90%;
+  height: 220px;
+  background-color: white;
+  margin: 25px;
+  padding: 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+
+  .child {
+    transform: translateY(-50px);
+
+    img {
+      width: 100px;
+
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-top: 5px;
+      color: #461A42;
+    }
+
+    hr {
+      border-top: 1px solid #461A42;
+    }
+
+    label {
+      color: #461A42;
+    }
+
+    input {
+      border: 1px solid #461A42;
+    }
+  }
+
+  button {
+    background-color: #461A42;
+    border: 5px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 26px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    transform: translateY(+25px);
+
+    &:hover {
+      background-color: #81064f;
+
+    }
+  }
+
+
+
 
 }

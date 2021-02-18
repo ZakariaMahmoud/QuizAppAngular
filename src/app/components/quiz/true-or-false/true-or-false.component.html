@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="card-header text-center">{{ i+1 + " / "+ questions.length }}</div>
+<!-- <div class="card">
+  <div class="card-header text-center"></div>
   <div class="card-body text-center">
 
     <h1>{{questions[i]}}</h1>
@@ -19,5 +19,36 @@
       </div>
     </div>
 
+  </div>
+</div> -->
+
+
+
+<div class="w-100">
+
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-6 mx-auto box">
+        <div class="child">
+
+          <img src="assets/img/true-false.png">
+
+          <div class="score">{{ i+1 + " / "+ questions.length }}</div>
+          <hr>
+          <h1 class="mt-5">{{questions[i]}}</h1>
+
+          <div class="row">
+            <div class="col">
+              <button (click)="setFalse()">
+                لا
+              </button>
+            </div>
+            <div class="col"><button (click)="setTrue()">
+                نعم
+              </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
