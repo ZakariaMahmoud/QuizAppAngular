@@ -52,7 +52,9 @@
     }
   }
 
-  button {
+
+
+  .button {
     background-color: #461A42;
     border: 5px solid white;
     border-radius: 10px;
@@ -67,14 +69,16 @@
     margin: 4px 2px;
     transform: translateY(+8px);
 
-
-    &:hover {
-      background-color: #81064f;
+    @media only screen and (min-width: 600px) {
+      &:hover {
+        background-color: #81064f;
+      }
 
     }
   }
 
+  .bgbutton {
+    background-color: #81064f !important;
 
-
-
+  }
 }

@@ -32,7 +32,7 @@ var TrueOrFalseComponent = /** @class */ (function () {
     TrueOrFalseComponent.prototype.ngOnInit = function () { };
     TrueOrFalseComponent.prototype.setTrue = function () {
         var _this = this;
-        this.active = 2;
+        this.active = 1;
         setTimeout(function () { return (_this.active = 0); }, 500);
         if (this.i < this.questions.length) {
             this.responses.push(true);
@@ -44,7 +44,7 @@ var TrueOrFalseComponent = /** @class */ (function () {
     };
     TrueOrFalseComponent.prototype.setFalse = function () {
         var _this = this;
-        this.active = 1;
+        this.active = 2;
         setTimeout(function () { return (_this.active = 0); }, 500);
         if (this.i < this.questions.length) {
             this.responses.push(false);

@@ -42,7 +42,7 @@
 .box .child input {
   border: 1px solid #461A42;
 }
-.box button {
+.box .button {
   background-color: #461A42;
   border: 5px solid white;
   border-radius: 10px;
@@ -56,6 +56,11 @@
   margin: 4px 2px;
   transform: translateY(8px);
 }
-.box button:hover {
-  background-color: #81064f;
+@media only screen and (min-width: 600px) {
+  .box .button:hover {
+    background-color: #81064f;
+  }
+}
+.box .bgbutton {
+  background-color: #81064f !important;
 }

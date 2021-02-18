@@ -37,7 +37,7 @@ export class TrueOrFalseComponent implements OnInit {
   ngOnInit(): void {}
 
   setTrue() {
-    this.active = 2;
+    this.active = 1;
     setTimeout(() => (this.active = 0), 500);
 
     if (this.i < this.questions.length) {
@@ -52,7 +52,7 @@ export class TrueOrFalseComponent implements OnInit {
   }
 
   setFalse() {
-    this.active = 1;
+    this.active = 2;
     setTimeout(() => (this.active = 0), 500);
 
     if (this.i < this.questions.length) {
