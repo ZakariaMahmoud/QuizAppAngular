@@ -21,6 +21,8 @@ var environment_1 = require("src/environments/environment");
 var shared_service_1 = require("./shared/shared.service");
 var share_component_1 = require("./components/quiz/true-or-false/share/share.component");
 var user_not_found_component_1 = require("./components/user-not-found/user-not-found.component");
+var footer_component_1 = require("./components/footer/footer.component");
+var ngx_spinner_1 = require("ngx-spinner");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -34,12 +36,14 @@ var AppModule = /** @class */ (function () {
                 true_or_false_component_1.TrueOrFalseComponent,
                 share_component_1.ShareComponent,
                 user_not_found_component_1.UserNotFoundComponent,
+                footer_component_1.FooterComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
                 fire_1.AngularFireModule.initializeApp(environment_1.environment.firebase, 'QuizApp'),
                 database_1.AngularFireDatabaseModule,
+                ngx_spinner_1.NgxSpinnerModule,
             ],
             providers: [shared_service_1.SharedService],
             bootstrap: [app_component_1.AppComponent]

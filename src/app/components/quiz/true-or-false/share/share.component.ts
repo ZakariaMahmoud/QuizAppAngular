@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AngularFireDatabase,
-  AngularFireList,
-  AngularFireObject,
-} from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 import { SharedService } from 'src/app/shared/shared.service';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-share',
@@ -40,7 +38,8 @@ export class ShareComponent implements OnInit {
     private shared: SharedService,
     private router: Router,
     public db: AngularFireDatabase,
-    private _Activatedroute: ActivatedRoute
+    private _Activatedroute: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) {
     if (this.user_id) {
       db.list('users/' + this.user_id)
@@ -53,13 +52,15 @@ export class ShareComponent implements OnInit {
               this.score = parseInt(
                 this.getCookie('true-or-false/' + this.user_id)
               );
-
+              this.showSpinner(2000);
               this.state = 2;
             } else if (
               this.getCookie('true-or-false/user_id') == this.user_id
             ) {
+              this.showSpinner(2000);
               this.state = 3;
             } else {
+              this.showSpinner(2000);
               this.state = 0;
             }
 
@@ -110,6 +111,7 @@ export class ShareComponent implements OnInit {
 
   ngOnInit(): void {
     this.href = window.location.href;
+    this.showSpinner(2000);
   }
   copy() {
     var link = document.getElementById('link') as HTMLInputElement;
@@ -219,5 +221,14 @@ export class ShareComponent implements OnInit {
       }
     }
     return '';
+  }
+
+  showSpinner(ms: number) {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
   }
 }

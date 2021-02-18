@@ -9,12 +9,13 @@ exports.__esModule = true;
 exports.ShareComponent = void 0;
 var core_1 = require("@angular/core");
 var ShareComponent = /** @class */ (function () {
-    function ShareComponent(shared, router, db, _Activatedroute) {
+    function ShareComponent(shared, router, db, _Activatedroute, spinner) {
         var _this = this;
         this.shared = shared;
         this.router = router;
         this.db = db;
         this._Activatedroute = _Activatedroute;
+        this.spinner = spinner;
         this.state = -1;
         this.name_of_quiz = 'صحيح أم خطأ';
         this.user_id = this._Activatedroute.snapshot.paramMap.get('user_id');
@@ -35,12 +36,15 @@ var ShareComponent = /** @class */ (function () {
                 else {
                     if (_this.getCookie('true-or-false/' + _this.user_id)) {
                         _this.score = parseInt(_this.getCookie('true-or-false/' + _this.user_id));
+                        _this.showSpinner(2000);
                         _this.state = 2;
                     }
                     else if (_this.getCookie('true-or-false/user_id') == _this.user_id) {
+                        _this.showSpinner(2000);
                         _this.state = 3;
                     }
                     else {
+                        _this.showSpinner(2000);
                         _this.state = 0;
                     }
                     _this.user = user;
@@ -81,6 +85,7 @@ var ShareComponent = /** @class */ (function () {
     }
     ShareComponent.prototype.ngOnInit = function () {
         this.href = window.location.href;
+        this.showSpinner(2000);
     };
     ShareComponent.prototype.copy = function () {
         var _this = this;
@@ -180,6 +185,14 @@ var ShareComponent = /** @class */ (function () {
             }
         }
         return '';
+    };
+    ShareComponent.prototype.showSpinner = function (ms) {
+        var _this = this;
+        this.spinner.show();
+        setTimeout(function () {
+            /** spinner ends after 5 seconds */
+            _this.spinner.hide();
+        }, 2000);
     };
     ShareComponent = __decorate([
         core_1.Component({

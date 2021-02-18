@@ -9,11 +9,12 @@ exports.__esModule = true;
 exports.TrueOrFalseComponent = void 0;
 var core_1 = require("@angular/core");
 var TrueOrFalseComponent = /** @class */ (function () {
-    function TrueOrFalseComponent(shared, router, db) {
+    function TrueOrFalseComponent(shared, router, db, spinner) {
         var _this = this;
         this.shared = shared;
         this.router = router;
         this.db = db;
+        this.spinner = spinner;
         this.active = 0;
         this.questions = [];
         this.responses = [];
@@ -29,7 +30,14 @@ var TrueOrFalseComponent = /** @class */ (function () {
             this.router.navigate(['quiz/true-or-false']);
         }
     }
-    TrueOrFalseComponent.prototype.ngOnInit = function () { };
+    TrueOrFalseComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.spinner.show();
+        setTimeout(function () {
+            /** spinner ends after 5 seconds */
+            _this.spinner.hide();
+        }, 2000);
+    };
     TrueOrFalseComponent.prototype.setTrue = function () {
         var _this = this;
         this.active = 1;

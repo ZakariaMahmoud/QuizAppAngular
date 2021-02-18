@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AngularFireDatabase,
-  AngularFireList,
-  AngularFireObject,
-} from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 import { SharedService } from 'src/app/shared/shared.service';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-true-or-false',
   templateUrl: './true-or-false.component.html',
@@ -21,7 +17,8 @@ export class TrueOrFalseComponent implements OnInit {
   constructor(
     private shared: SharedService,
     private router: Router,
-    public db: AngularFireDatabase
+    public db: AngularFireDatabase,
+    private spinner: NgxSpinnerService
   ) {
     if (this.shared.user.name) {
       db.list('questions/QuestionsForUser')
@@ -34,7 +31,14 @@ export class TrueOrFalseComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
+  }
 
   setTrue() {
     this.active = 1;

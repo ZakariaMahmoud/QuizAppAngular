@@ -15,7 +15,7 @@ import { SharedService } from './shared/shared.service';
 import { ShareComponent } from './components/quiz/true-or-false/share/share.component';
 import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'QuizApp'),
     AngularFireDatabaseModule,
+    NgxSpinnerModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent],
