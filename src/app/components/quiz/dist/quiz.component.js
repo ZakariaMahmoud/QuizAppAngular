@@ -15,42 +15,18 @@ var QuizComponent = /** @class */ (function () {
         this.router = router;
         this._Activatedroute = _Activatedroute;
         this.name_of_quiz = '';
-        this.quiz_name = this._Activatedroute.snapshot.paramMap.get('quiz_name');
-        this.setNameOfQuiz(this.quiz_name);
+        this.shared.quiz.name = this._Activatedroute.snapshot.paramMap.get('quiz_name');
     }
     QuizComponent.prototype.ngOnInit = function () { };
     QuizComponent.prototype.setNameUser = function (name) {
         if (name) {
             this.shared.user.name = name;
             $('#name').attr('style', '');
-            this.router.navigate([this.quiz_name]);
+            this.router.navigate([this.shared.quiz.name]);
         }
         else {
             $('#name').attr('style', 'border:2px solid red;');
         }
-    };
-    QuizComponent.prototype.setNameOfQuiz = function (quiz_name) {
-        switch (quiz_name) {
-            case 'true-or-false': {
-                this.name_of_quiz = 'نعم أم لا';
-                break;
-            }
-        }
-    };
-    QuizComponent.prototype.getCookie = function (cname) {
-        var name = cname + '=';
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return '';
     };
     QuizComponent = __decorate([
         core_1.Component({

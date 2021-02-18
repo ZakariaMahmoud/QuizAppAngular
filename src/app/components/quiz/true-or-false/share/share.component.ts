@@ -16,7 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ShareComponent implements OnInit {
   state: number = -1;
   href: string;
-  name_of_quiz: string = 'نعم أم لا';
+  name_of_quiz: string = 'صحيح أم خطأ';
 
   user_id: string = this._Activatedroute.snapshot.paramMap.get('user_id');
   user_name: any = '';

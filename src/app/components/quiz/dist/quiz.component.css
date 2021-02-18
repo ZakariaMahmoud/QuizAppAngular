@@ -25,23 +25,24 @@
 .box .child h1 {
   font-size: 18px;
   margin-top: 5px;
-  color: #461A42;
+  color: #652b60;
 }
 .box .child hr {
-  border-top: 1px solid #461A42;
+  border-top: 1px solid #652b60;
 }
 .box .child label {
-  color: #461A42;
+  color: #652b60;
 }
 .box .child input {
-  border: 1px solid #461A42;
+  border: 1px solid #652b60;
 }
 .box button {
-  background-color: #461A42;
+  background-color: #652b60;
   border: 5px solid white;
   border-radius: 10px;
   color: white;
-  padding: 10px 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

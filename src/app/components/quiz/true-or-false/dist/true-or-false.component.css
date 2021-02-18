@@ -30,18 +30,19 @@
 .box .child h1 {
   font-size: 28px;
   margin-top: 10px;
-  color: #461A42;
+  color: #652b60;
   height: 66px;
 }
 .box .child hr {
-  border-top: 1px solid #461A42;
+  border-top: 1px solid #652b60;
 }
 .box .button {
-  background-color: #461A42;
+  background-color: #652b60;
   border: 5px solid white;
   border-radius: 10px;
   color: white;
-  padding: 10px 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 95px;
   text-align: center;
   text-decoration: none;

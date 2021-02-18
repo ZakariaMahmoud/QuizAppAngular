@@ -1,0 +1,37 @@
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+
+
+
+}
+
+.mahmoud {
+
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 8px;
+  color: #652b60;
+
+  box-shadow: 0px 6px 36px 11px #4d2448;
+
+  a {
+    text-decoration: none;
+    color: #652b60;
+
+    &:hover {
+
+      color: #205b44;
+    }
+  }
+
+
+}

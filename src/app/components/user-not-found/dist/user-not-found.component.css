@@ -20,7 +20,7 @@
 }
 .box h1 {
   font-family: "Mirza";
-  color: #461A42;
+  color: #652b60;
 }
 
 a {
@@ -31,11 +31,12 @@ a:hover .box {
 }
 
 .button {
-  background-color: #461A42;
+  background-color: #652b60;
   border: 5px solid white;
   border-radius: 10px;
   color: white;
-  padding: 10px 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
   text-align: center;
   text-decoration: none;

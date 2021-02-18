@@ -14,8 +14,7 @@ var User = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    User.prototype.setResponses = function (quiz_name, responses) {
-    };
+    User.prototype.setResponses = function (quiz_name, responses) { };
     return User;
 }());
 exports.User = User;

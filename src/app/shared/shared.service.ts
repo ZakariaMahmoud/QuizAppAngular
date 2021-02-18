@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { User } from '../classes/user';
+import { Quiz } from '../classes/quiz';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
   public user = new User();
-  constructor() { }
+  public quiz = new Quiz();
 
-  getUser() :User{ return this.user}
+  constructor() {}
 
+  getUser(): User {
+    return this.user;
+  }
 }
