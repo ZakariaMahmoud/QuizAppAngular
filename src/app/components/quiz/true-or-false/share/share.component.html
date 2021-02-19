@@ -63,11 +63,13 @@
 
           <div class="row">
             <div class="col">
-              <button class="button" (click)="setFalse()" [class.bgbutton]="active==2">
+              <button class="button" (click)="setFalse()"
+                [ngClass]="{'bgbuttontrue' : active==3, 'bgbuttonfalse' : active==4}">
                 خطأ
               </button>
             </div>
-            <div class="col"><button class="button" (click)="setTrue()" [class.bgbutton]="active==1">
+            <div class="col"><button class="button" (click)="setTrue()"
+                [ngClass]="{'bgbuttontrue' : active==1, 'bgbuttonfalse' : active==2}">
                 صحيح
               </button></div>
           </div>

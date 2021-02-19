@@ -139,6 +139,11 @@ export class ShareComponent implements OnInit {
     if (this.i < this.questions.length) {
       if (this.user_responses[this.i] == true) {
         this.score++;
+        this.active = 1;
+        setTimeout(() => (this.active = 0), 500);
+      } else {
+        this.active = 2;
+        setTimeout(() => (this.active = 0), 500);
       }
       this.i++;
     }
@@ -152,6 +157,11 @@ export class ShareComponent implements OnInit {
     if (this.i < this.questions.length) {
       if (this.user_responses[this.i] == false) {
         this.score++;
+        this.active = 3;
+        setTimeout(() => (this.active = 0), 500);
+      } else {
+        this.active = 4;
+        setTimeout(() => (this.active = 0), 500);
       }
       this.i++;
     }

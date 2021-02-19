@@ -118,8 +118,11 @@
     background-color: #81064f;
   }
 }
-.box-2 .bgbutton {
-  background-color: #81064f !important;
+.box-2 .bgbuttontrue {
+  background-color: #298106 !important;
+}
+.box-2 .bgbuttonfalse {
+  background-color: #9e1a2c !important;
 }
 
 /* container */

@@ -111,9 +111,16 @@ var ShareComponent = /** @class */ (function () {
         }
     };
     ShareComponent.prototype.setTrue = function () {
+        var _this = this;
         if (this.i < this.questions.length) {
             if (this.user_responses[this.i] == true) {
                 this.score++;
+                this.active = 1;
+                setTimeout(function () { return (_this.active = 0); }, 500);
+            }
+            else {
+                this.active = 2;
+                setTimeout(function () { return (_this.active = 0); }, 500);
             }
             this.i++;
         }
@@ -122,9 +129,16 @@ var ShareComponent = /** @class */ (function () {
         }
     };
     ShareComponent.prototype.setFalse = function () {
+        var _this = this;
         if (this.i < this.questions.length) {
             if (this.user_responses[this.i] == false) {
                 this.score++;
+                this.active = 3;
+                setTimeout(function () { return (_this.active = 0); }, 500);
+            }
+            else {
+                this.active = 4;
+                setTimeout(function () { return (_this.active = 0); }, 500);
             }
             this.i++;
         }

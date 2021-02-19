@@ -16,6 +16,7 @@ import { ShareComponent } from './components/quiz/true-or-false/share/share.comp
 import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
