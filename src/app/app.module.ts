@@ -16,7 +16,7 @@ import { ShareComponent } from './components/quiz/true-or-false/share/share.comp
 import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AngularFireModule.initializeApp(environment.firebase, 'QuizApp'),
     AngularFireDatabaseModule,
     NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent],

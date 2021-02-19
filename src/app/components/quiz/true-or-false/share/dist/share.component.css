@@ -60,18 +60,18 @@
   font-size: 15px;
   margin: 4px 2px;
 }
-@media (hover: hover) and (pointer: fine) {
-  .box .button-1:hover {
-    background-color: #81064f;
-  }
-}
 .box .bgbutton {
   background-color: #a25583 !important;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    background-color: #81064f;
+  }
+}
 .box-2 {
   width: 90%;
-  height: 266px;
+  height: 310px;
   background-color: white;
   margin: 25px;
   padding: 10px;
@@ -111,7 +111,7 @@
   display: inline-block;
   font-size: 18px;
   margin: 4px 2px;
-  transform: translateY(8px);
+  transform: translateY(50px);
 }
 @media (hover: hover) and (pointer: fine) {
   .box-2 .button:hover {
