@@ -15,14 +15,14 @@ var true_or_false_component_1 = require("./components/quiz/true-or-false/true-or
 var share_component_1 = require("./components/quiz/true-or-false/share/share.component");
 var user_not_found_component_1 = require("./components/user-not-found/user-not-found.component");
 var routes = [
+    { path: '', component: home_component_1.HomeComponent },
     { path: 'quiz/:quiz_name', component: quiz_component_1.QuizComponent },
     { path: 'quiz', redirectTo: '' },
-    { path: '', component: home_component_1.HomeComponent },
-    { path: '**', redirectTo: '' },
     { path: 'true-or-false', component: true_or_false_component_1.TrueOrFalseComponent },
     { path: 'true-or-false/share/:user_id', component: share_component_1.ShareComponent },
     { path: 'true-or-false/share/', redirectTo: '' },
     { path: 'user-not-found', component: user_not_found_component_1.UserNotFoundComponent },
+    { path: '**', redirectTo: '' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
