@@ -18,6 +18,7 @@ var routes = [
     { path: 'quiz/:quiz_name', component: quiz_component_1.QuizComponent },
     { path: 'quiz', redirectTo: '' },
     { path: '', component: home_component_1.HomeComponent },
+    { path: '**', redirectTo: '' },
     { path: 'true-or-false', component: true_or_false_component_1.TrueOrFalseComponent },
     { path: 'true-or-false/share/:user_id', component: share_component_1.ShareComponent },
     { path: 'true-or-false/share/', redirectTo: '' },

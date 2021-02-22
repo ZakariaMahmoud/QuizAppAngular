@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'quiz/:quiz_name', component: QuizComponent },
   { path: 'quiz', redirectTo: '' },
   { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '' },
   { path: 'true-or-false', component: TrueOrFalseComponent },
   { path: 'true-or-false/share/:user_id', component: ShareComponent },
   { path: 'true-or-false/share/', redirectTo: '' },
