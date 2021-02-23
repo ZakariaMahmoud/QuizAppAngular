@@ -9,19 +9,35 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var quiz_component_1 = require("./components/quiz/quiz.component");
 var home_component_1 = require("./components/home/home.component");
-var true_or_false_component_1 = require("./components/quiz/true-or-false/true-or-false.component");
-var share_component_1 = require("./components/quiz/true-or-false/share/share.component");
-var user_not_found_component_1 = require("./components/user-not-found/user-not-found.component");
 var routes = [
     { path: '', component: home_component_1.HomeComponent },
-    { path: 'quiz/:quiz_name', component: quiz_component_1.QuizComponent },
-    { path: 'quiz', redirectTo: '' },
-    { path: 'true-or-false', component: true_or_false_component_1.TrueOrFalseComponent },
-    { path: 'true-or-false/share/:user_id', component: share_component_1.ShareComponent },
+    {
+        path: 'quiz/:quiz_name',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./components/quiz/quiz.module'); }).then(function (m) { return m.QuizModule; });
+        }
+    },
+    {
+        path: 'true-or-false',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./components/quiz/true-or-false/true-or-false.module'); }).then(function (m) { return m.TrueOrFalseModule; });
+        }
+    },
+    {
+        path: 'true-or-false/share/:user_id',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./components/quiz/true-or-false/share/share.module'); }).then(function (m) { return m.ShareModule; });
+        }
+    },
+    {
+        path: 'user-not-found',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./components/user-not-found/user-not-found.module'); }).then(function (m) { return m.UserNotFoundModule; });
+        }
+    },
     { path: 'true-or-false/share/', redirectTo: '' },
-    { path: 'user-not-found', component: user_not_found_component_1.UserNotFoundComponent },
+    { path: 'quiz', redirectTo: '' },
     { path: '**', redirectTo: '' },
 ];
 var AppRoutingModule = /** @class */ (function () {

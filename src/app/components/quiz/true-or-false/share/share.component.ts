@@ -124,14 +124,16 @@ export class ShareComponent implements OnInit {
   setNameVisitor(name: string) {
     if (name) {
       this.visitor_name = name;
-      $('#name').attr('style', '');
+      document.getElementById('name').setAttribute('style', '');
       if (this.getCookie('true-or-false/' + this.user_id)) {
         this.state = 2;
       } else {
         this.state = 1;
       }
     } else {
-      $('#name').attr('style', 'border:2px solid red;');
+      document
+        .getElementById('name')
+        .setAttribute('style', 'border:2px solid red;');
     }
   }
 

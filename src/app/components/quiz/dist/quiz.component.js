@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.QuizComponent = void 0;
 var core_1 = require("@angular/core");
-var $ = require("jquery");
 var QuizComponent = /** @class */ (function () {
     function QuizComponent(shared, router, _Activatedroute) {
         this.shared = shared;
@@ -21,11 +20,13 @@ var QuizComponent = /** @class */ (function () {
     QuizComponent.prototype.setNameUser = function (name) {
         if (name) {
             this.shared.user.name = name;
-            $('#name').attr('style', '');
+            document.getElementById('name').setAttribute('style', '');
             this.router.navigate([this.shared.quiz.name]);
         }
         else {
-            $('#name').attr('style', 'border:2px solid red;');
+            document
+                .getElementById('name')
+                .setAttribute('style', 'border:2px solid red;');
         }
     };
     QuizComponent = __decorate([

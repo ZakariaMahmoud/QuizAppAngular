@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/shared.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-quiz',
@@ -26,10 +25,12 @@ export class QuizComponent implements OnInit {
   setNameUser(name: string) {
     if (name) {
       this.shared.user.name = name;
-      $('#name').attr('style', '');
+      document.getElementById('name').setAttribute('style', '');
       this.router.navigate([this.shared.quiz.name]);
     } else {
-      $('#name').attr('style', 'border:2px solid red;');
+      document
+        .getElementById('name')
+        .setAttribute('style', 'border:2px solid red;');
     }
   }
 }

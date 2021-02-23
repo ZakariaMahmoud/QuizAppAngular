@@ -1,33 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { QuizComponent } from './components/quiz/quiz.component';
 import { HomeComponent } from './components/home/home.component';
-import { TrueOrFalseComponent } from './components/quiz/true-or-false/true-or-false.component';
 import { environment } from 'src/environments/environment';
-
 import { SharedService } from './shared/shared.service';
-import { ShareComponent } from './components/quiz/true-or-false/share/share.component';
-import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    QuizComponent,
-    HomeComponent,
-    TrueOrFalseComponent,
-    ShareComponent,
-    UserNotFoundComponent,
-    FooterComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,5 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [SharedService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

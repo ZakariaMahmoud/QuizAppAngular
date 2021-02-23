@@ -98,7 +98,7 @@ var ShareComponent = /** @class */ (function () {
     ShareComponent.prototype.setNameVisitor = function (name) {
         if (name) {
             this.visitor_name = name;
-            $('#name').attr('style', '');
+            document.getElementById('name').setAttribute('style', '');
             if (this.getCookie('true-or-false/' + this.user_id)) {
                 this.state = 2;
             }
@@ -107,7 +107,9 @@ var ShareComponent = /** @class */ (function () {
             }
         }
         else {
-            $('#name').attr('style', 'border:2px solid red;');
+            document
+                .getElementById('name')
+                .setAttribute('style', 'border:2px solid red;');
         }
     };
     ShareComponent.prototype.setTrue = function () {
