@@ -1,27 +1,68 @@
-# QuizApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-## Development server
+![](https://i.imgur.com/5xlL15g.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Quiz App Angular 
 
-## Build
+**My project idea is a website to test the strength of friendship between you and your friends.**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**To build this project, I used :**
 
-## Running unit tests
+- **Angular 11**
+- **Firebase RealTime Database** 
+- **Bootstrap**
+- **ngx-spinner**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**😀 Try the website : [www.quiz2022.com](https://quiz2022.com/)**
 
-## Running end-to-end tests
+## Explain the idea
+ - On the main page, you can choose the test that suits you (many tests will be added in the coming days)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![](https://i.imgur.com/dCRNvKN.png)
 
-## Further help
+ - After you choose a test, the App asks you to enter your full name.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![](https://i.imgur.com/VSaVljl.png)
+
+ - After clicking "Start the test", the test begins. The App asks you to answer 10 questions.
+
+
+![](https://i.imgur.com/5cTomHc.png)
+
+
+ - After that, the site automatically generates your own link that you can share with your friends.
+
+![](https://i.imgur.com/jkRiHD5.png)
+
+
+ - After your friend clicks on the link, the App asks him to enter his full name.
+
+![](https://i.imgur.com/3nhnQ7V.png)
+
+ - After that, the App will ask it to answer your same questions. If the choice of your friend and yours is identical, the background of the button will be colored green, and if it does not match, the background of the button will be colored in red.
+
+![](https://i.imgur.com/1c3RRIv.png)
+
+
+ - In the end, you show your friend the result of his compatibility with you. With a table with results for your friends
+
+![](https://i.imgur.com/o3m46L4.png)
+
+ - The results table  is updated in realtime.
+
+![](https://i.imgur.com/PlgRaOP.png)
+
+## Instalation
+
+```bash=
+npm install
+
+ng serve
+```
+
+## Created by
+
+* 🇲🇦 **Mahmoud Zakaria** 
+* 🌐 [www.mahmoud.ma](https://www.mahmoud.ma/)
