@@ -1,6 +1,6 @@
 
 
-![](https://i.imgur.com/5xlL15g.png)
+
 
 
 
@@ -15,7 +15,7 @@
 - **Bootstrap**
 - **ngx-spinner**
 
-**😀 Try the website : [www.quiz2022.com](https://quiz2022.com/)**
+**😀 Try the website : [www.quiz.mahmoud.ma](https://quiz.mahmoud.ma/)**
 
 ## Explain the idea
  - On the main page, you can choose the test that suits you (many tests will be added in the coming days)
